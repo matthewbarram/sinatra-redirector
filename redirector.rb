@@ -12,11 +12,11 @@ get '*' do |path|
   if array_of_elements.count == 7
     url = array_of_elements[6]
     redirect "https://101geo.myshopify.com/blog/101geo/#{url}"
-  elsif array_of_elements == 2 || array_of_elements.first == "tag"
-    url = array_of_elements['6']
+  elsif array_of_elements == 5 || array_of_elements.first == "tag"
+    url = array_of_elements[6]
     redirect "https://101geo.myshopify.com/blog/101geo/tagged/#{url}"
-  elsif array_of_elements == 2 || array_of_elements.first
-    url = array_of_elements.first
+  elsif array_of_elements == 5 || array_of_elements.first
+    url = array_of_elements[3]
     redirect "https://101geo.myshopify.com/blog/101geo/tagged/#{url}"
   else
     redirect "https://101geo.myshopify.com/blog/101geo/#{env['REQUEST_URI']}"

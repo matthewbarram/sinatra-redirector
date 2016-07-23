@@ -1,22 +1,16 @@
 require 'sinatra'
 
-# Here are some example redirects. The first matching redirect wins.
-
-# GET /specific_path
-get '/specific_path' do
-  # Pass `, 301` for permanent redirects, but be warned: They can be cached
-  # permanently, so you cannot fix typos.
-  redirect "http://new-site.example.com/new_path"
-end
-
-# GET /post/42
-get '/post/:id' do |post_id|
-  redirect "http://new-site.example.com/blog/post/#{post_id}"
-end
-
-# GET /anything
 get '*' do |path|
-  # Note: `path` does not include query strings. You can use
-  # env['REQUEST_URI'] etc. to get it.
-  redirect "http://new-site.example.com#{path}"
+  array_of_elements = env['REQUEST_URI'].split("/")
+  if array_of_elements.count == 3
+    redirect "https://101geo.myshopify.com/blog/101geo/#{url}"
+  elsif array_of_elements == 2 || array_of_elements.first == "tag"
+    url = array_of_elements.last
+    redirect "https://101geo.myshopify.com/blog/101geo/tagged/#{url}"
+  elsif array_of_elements == 2 || array_of_elements.first
+    url = array_of_elements.first
+    redirect "https://101geo.myshopify.com/blog/101geo/tagged/#{url}"
+  else
+    redirect "https://101geo.myshopify.com/blog/101geo/#{env['REQUEST_URI']}"
+  end
 end

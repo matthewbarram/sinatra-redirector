@@ -12,7 +12,7 @@ get '*' do |path|
   if array_of_elements.count == 7
     url = array_of_elements[6]
     redirect "https://101geo.myshopify.com/blog/101geo/#{url}"
-  elsif array_of_elements == 5 || array_of_elements.first == "tag"
+  elsif array_of_elements == 5 || array_of_elements[3] == "tag"
     url = array_of_elements[4]
     redirect "https://101geo.myshopify.com/blog/101geo/tagged/#{url}"
   elsif array_of_elements == 5 || array_of_elements.first

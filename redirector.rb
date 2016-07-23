@@ -8,7 +8,7 @@ get '*' do |path|
     puts "#{item} - #{@count}"
     @count = @count + 1
   end
-  if array_of_elements.count == 4
+  if array_of_elements.count == 6
     redirect "https://101geo.myshopify.com/blog/101geo/#{url}"
   elsif array_of_elements == 2 || array_of_elements.first == "tag"
     url = array_of_elements.last

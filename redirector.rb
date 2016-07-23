@@ -3,6 +3,7 @@ require 'sinatra'
 get '*' do |path|
   array_of_elements = env['REQUEST_URI'].split("/")
   puts array_of_elements
+  puts "numbers of elements in array #{array_of_elements.count}"
   @count = 0
   array_of_elements.each do |item|
     puts "#{item} - #{@count}"
